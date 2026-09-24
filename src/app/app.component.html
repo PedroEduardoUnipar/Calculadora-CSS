@@ -1,0 +1,42 @@
+<main class="pagina">
+<header class="cabecalho">
+  <h1>Calculadoras</h1>
+  <p>Dois Exercicios,Dois Cards: Troco e Preco por Quilo</p>
+</header>
+
+<section class="cards">
+  <article class="card">
+    <div class="card-icone">💵</div>
+    <h2 class="card-titulo">Calculadora de Troco</h2>
+    <div class="campo">
+      <label for="valorPago">Valor Pago (R$)</label>
+      <input id="valorPago" type="number" min="0" step="0.01" [(ngModel)]="valorPago" placeholder="0,00">
+    </div>
+    <div class="campo">
+      <label for="precoProduto">Valor Pago (R$)</label>
+      <input id="precoProduto" type="number" min="0" step="0.01" [(ngModel)]="precoProduto" placeholder="0,00">
+    </div>
+    <div class="resultado" [class.resultado-negativo]="valorPago < precoProduto">
+      <span class="resultado-rotulo">troco</span>
+      <span class="resultado-valor">R$ {{ calcularTroco().toFixed(2) }}</span>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-icone">💵</div>
+    <h2 class="card-titulo">Preco por Quilo</h2>
+    <div class="campo">
+      <label for="precoQuilo">Valor Quilo (R$)</label>
+      <input id="precoQuilo" type="number" min="0" step="0.01" [(ngModel)]="precoQuilo" placeholder="0,00">
+    </div>
+    <div class="campo">
+      <label for="quantidadedeQuilos">Quilogramas</label>
+      <input id="quantidadedeQuilos" type="number" min="0" step="0.01" [(ngModel)]="quantidadedeQuilos" placeholder="0,00">
+    </div>
+    <div class="resultado" [class.resultado-negativo]="quantidadedeQuilos === 0">
+      <span class="resultado-rotulo">troco</span>
+      <span class="resultado-valor">R$ {{ calcularValorFinal().toFixed(2) }}</span>
+    </div>
+  </article>
+</section>
+</main>
